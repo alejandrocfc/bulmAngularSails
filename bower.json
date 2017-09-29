@@ -1,0 +1,22 @@
+{
+  "name": "assets",
+  "authors": [
+    "Alejandro Gómez <man_alejo@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-file-upload": "^12.2.13",
+    "angular": "^1.6.6",
+    "angular-route": "1.6.6"
+  }
+}
