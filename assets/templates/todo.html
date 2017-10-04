@@ -89,7 +89,7 @@
               <div class="column is-4">
                 <label class="label">Teléfono</label>
                 <div class="control has-icons-right">
-                  <input name="phone" class="input" ng-class="{'is-danger': formPartner.phone.$touched && formPartner.phone.$invalid,'is-success':formPartner.phone.$touched && formPartner.phone.$valid}" type="number" ng-model="form.phone" placeholder="Text input" required>
+                  <input name="phone" class="input" ng-class="{'is-danger': formPartner.phone.$touched && formPartner.phone.$invalid,'is-success':formPartner.phone.$touched && formPartner.phone.$valid}" type="number" ng-model="form.phone" placeholder="Sólo números" required>
                   <span class="icon is-small is-right">
                       <i ng-class="{'fa fa-warning':formPartner.phone.$touched && formPartner.phone.$invalid,'fa fa-check':formPartner.phone.$touched && formPartner.phone.$valid}"></i>
                     </span>
@@ -129,13 +129,13 @@
       </div>
       <div class="field">
         <div class="control">
-          <!--<button ng-disabled="formPartner.$invalid" ng-click="submit()" class="button is-primary">Submit</button>-->
-          <button ng-click="submit()" class="button is-primary">Submit</button>
+          <button ng-disabled="formPartner.$invalid" ng-click="submit()" class="button is-primary">Guardar</button>
+          <!--button ng-click="submit()" class="button is-primary">Guardar</button-->
         </div>
       </div>
     <hr>
     <div class="container">
-      <span class="title is-4">Product Name {{form.id}}</span>
+      <span class="title is-4">Productos</span>
       <span ng-if="form.id" class="title is-5 has-text-muted">
           <a href="" ng-click="openModal()">+</a>
         </span>
@@ -169,7 +169,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Modal title</p>
+      <p class="modal-card-title">Producto</p>
       <button ng-click="showModal = false" class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
@@ -191,7 +191,7 @@
           <div class="field column is-4">
             <label class="label">Precio Mínimo</label>
             <div class="control has-icons-right">
-              <input name="min" class="input" ng-class="{'is-danger': formProd.min.$touched && formProd.min.$invalid,'is-success':formProd.min.$touched && formProd.min.$valid}" ng-model="prod.min" type="text" placeholder="CreeTec" required>
+              <input name="min" class="input" ng-class="{'is-danger': formProd.min.$touched && formProd.min.$invalid,'is-success':formProd.min.$touched && formProd.min.$valid}" ng-model="prod.min" type="number" placeholder="$0.0" required>
               <span class="icon is-small is-right">
                       <i ng-class="{'fa fa-warning':formProd.min.$touched && formProd.min.$invalid,'fa fa-check':formProd.min.$touched && formProd.min.$valid}"></i>
                     </span>
@@ -200,7 +200,7 @@
           <div class="field column is-4">
             <label class="label">Precio Máximo</label>
             <div class="control has-icons-right">
-              <input name="max" class="input" ng-class="{'is-danger': formProd.max.$touched && formProd.max.$invalid,'is-success':formProd.max.$touched && formProd.max.$valid}" ng-model="prod.max" type="text" placeholder="CreeTec" required>
+              <input name="max" class="input" ng-class="{'is-danger': formProd.max.$touched && formProd.max.$invalid,'is-success':formProd.max.$touched && formProd.max.$valid}" ng-model="prod.max" type="number" placeholder="$0.0" required>
               <span class="icon is-small is-right">
                       <i ng-class="{'fa fa-warning':formProd.max.$touched && formProd.max.$invalid,'fa fa-check':formProd.max.$touched && formProd.max.$valid}"></i>
                     </span>
@@ -210,8 +210,9 @@
             <label class="label">Categoría</label>
             <div class="select">
               <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
+                <option>::..Seleccione..::</option>
+                <option>Contabilidad</option>
+                <option>Inventarios</option>
               </select>
             </div>
           </div>
@@ -219,7 +220,7 @@
       </form>
     </section>
     <footer class="modal-card-foot">
-      <a ng-click="addTodo()" class="button is-success">
+      <a ng-disabled="formProd.$invalid" ng-click="addTodo()" class="button is-primary">
         <span class="icon"><i class="fa fa-save"></i></span>
         <span>Guardar</span>
       </a>

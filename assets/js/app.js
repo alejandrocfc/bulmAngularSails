@@ -12,7 +12,17 @@ todoApp.config(['$routeProvider',
     })
   }]);
 
+todoApp.run(['$window', function($window) {
+  $window.onload = function() {
+    console.log('VIEW RENDERED')
+    var s = document.createElement('script'); // use global document since Angular's $document is weak
+    s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC5bOTru4W2RJ4o9HMHBR_hdo5nOcR9tB0&libraries=places&callback=initAutocomplete';
+    document.body.appendChild(s);
+  };
+}]);
+
 todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', 'Upload', function($scope, $rootScope, TodoService, Upload) {
+
   $scope.formData = {};
   $scope.form = {};
   $scope.prod = {};
@@ -86,6 +96,7 @@ todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', 'Upload',
     TodoService.addProduct($scope.prod, $scope.form.id).then(function(response) {
       $scope.products.push($scope.prod);
       $scope.prod = {};
+      $scope.showModal = false;
     }, function (error) {
       console.log(error);
     });
